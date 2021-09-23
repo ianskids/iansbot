@@ -12,9 +12,10 @@ let handler = async (m, { conn, usedPrefix }) => {
      let src = await (await fetch('https://raw.githubusercontent.com/ianskids/database/master/games/asahotak.json')).json()
     let json = src[Math.floor(Math.random() * src.length)]
 
-    let caption = `
+    let caption = `*Pertanyaan: *
 ${json.soal}
 
+Jawab dengan membalas Persan ini
 Timeout *${(timeout / 1000).toFixed(2)} detik*
 Ketik ${usedPrefix}ao untuk bantuan
 Bonus: ${poin} XP
