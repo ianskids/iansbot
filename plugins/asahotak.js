@@ -12,7 +12,7 @@ let handler = async (m, { conn, usedPrefix }) => {
      let src = await (await fetch('https://raw.githubusercontent.com/ianskids/database/master/games/asahotak.json')).json()
     let json = src[Math.floor(Math.random() * src.length)]
 
-    let caption = `*Pertanyaan: *
+    let caption = `*Pertanyaan:*
 ${json.soal}
 
 Jawab dengan membalas Persan ini
