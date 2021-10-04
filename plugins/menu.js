@@ -1,6 +1,7 @@
 let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
+let fetch = require('node-fetch')
 let tags = {
   'main': 'Main',
   'game': 'Game',
@@ -148,7 +149,10 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.reply(m.chat, text.trim(), m)
+    //conn.reply(m.chat, , m)
+    await conn.send2ButtonLoc(m.chat, await fs.readFileSync(`./src/ians.jpg`), text.trim(), author, 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
+
+
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
